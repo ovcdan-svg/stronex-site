@@ -402,11 +402,10 @@
             </div>
             
             <div class="bg-white p-8 rounded-3xl shadow-2xl text-gray-800">
-                <form action="https://formsubmit.co/buildcenterua@gmail.com" method="POST" class="space-y-4">
+                <form id="contactForm" class="space-y-4">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="Нова заявка з сайту STRONEX!">
                     <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://stronex.tech/">
 
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-1">Ваше ім'я</label>
@@ -420,8 +419,8 @@
                         <label class="block text-sm font-bold text-gray-700 mb-1">Коментар (необов'язково)</label>
                         <textarea name="message" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-emerald-500 focus:outline-none" rows="3" placeholder="Який об'єм вас цікавить?"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl transition shadow-lg mt-2">
-                        Надіслати заявку
+                    <button type="submit" id="submitBtn" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl transition shadow-lg mt-2 flex justify-center items-center">
+                        <span>Надіслати заявку</span>
                     </button>
                     <p class="text-xs text-gray-400 text-center mt-2">Ми зателефонуємо вам протягом робочого дня.</p>
                 </form>
@@ -470,6 +469,22 @@
         </div>
     </section>
 
+    <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 relative z-10 text-center shadow-2xl transform scale-100 transition-all">
+            <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Дякуємо за заявку!</h3>
+            <p class="text-gray-500 mb-8">Ми отримали ваш запит. Менеджер зв'яжеться з вами найближчим часом для уточнення деталей.</p>
+            <button onclick="closeModal()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition">
+                Чудово
+            </button>
+        </div>
+    </div>
+
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
@@ -482,21 +497,56 @@
         function calculate() {
             const area = document.getElementById('areaInput').value;
             const thickness = document.getElementById('thicknessInput').value;
-            
-            // Update display value for thickness
             document.getElementById('thicknessValue').innerText = thickness;
-
-            const consumption = 1.8; // kg per m2 per 1mm
-            const bagWeight = 25; // kg
-
+            const consumption = 1.8;
+            const bagWeight = 25;
             const totalWeight = area * thickness * consumption;
             const bags = Math.ceil(totalWeight / bagWeight);
-
             document.getElementById('resultWeight').innerText = Math.round(totalWeight);
             document.getElementById('resultBags').innerText = bags;
         }
 
-        // Smooth scroll adjustment
+        // AJAX Form Submission Logic
+        const form = document.getElementById('contactForm');
+        const modal = document.getElementById('successModal');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop redirection
+            
+            // Change button state
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span>Відправка...</span>';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            fetch("https://formsubmit.co/ajax/buildcenterua@gmail.com", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Success
+                modal.classList.remove('hidden');
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Сталася помилка при відправці. Будь ласка, зателефонуйте нам.');
+            })
+            .finally(() => {
+                // Restore button
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -506,7 +556,6 @@
                     const headerOffset = 80;
                     const elementPosition = target.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: "smooth"
