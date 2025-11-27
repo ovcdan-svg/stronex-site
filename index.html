@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STRONEX - Клей для плитки від виробника</title>
+    <title>STRONEX UNIVERSAL C-1 — Виробництво клею для плитки</title>
+    <meta name="description" content="Виробник будівельних сумішей ТОВ «БАЛАНС-БУД» (STRONEX). Професійний клей для плитки класу C-1. ЄДРПОУ: 46050267.">
+    <link rel="icon" href="logo.png" type="image/png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,43 +27,56 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        serif: ['Times New Roman', 'Times', 'serif'],
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        html { scroll-behavior: smooth; }
+        /* Range slider styling */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #059669;
+            cursor: pointer;
+            margin-top: -8px;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #d1fae5;
+            border-radius: 2px;
+        }
     </style>
 </head>
-<body class="bg-white text-gray-800 selection:bg-emerald-200">
+<body class="bg-gray-50 text-gray-800 selection:bg-emerald-200">
 
-    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-emerald-800 rounded flex items-center justify-center text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                </div>
-                <span class="text-2xl font-black text-emerald-950 tracking-tighter">STRONEX</span>
-            </div>
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="logo.png" alt="STRONEX Logo" class="h-14 w-auto object-contain" />
+            </a>
 
-            <nav class="hidden md:flex gap-8 font-medium text-gray-600">
-                <a href="#products" class="hover:text-emerald-700 transition">Продукція</a>
-                <a href="#features" class="hover:text-emerald-700 transition">Характеристики</a>
-                <a href="#about" class="hover:text-emerald-700 transition">Про виробництво</a>
+            <nav class="hidden md:flex gap-6 lg:gap-8 font-medium text-gray-600 text-sm lg:text-base">
+                <a href="#product" class="hover:text-emerald-700 transition">Про продукт</a>
+                <a href="#specs" class="hover:text-emerald-700 transition">Характеристики</a>
+                <a href="#calculator" class="hover:text-emerald-700 transition">Калькулятор</a>
+                <a href="#instruction" class="hover:text-emerald-700 transition">Інструкція</a>
                 <a href="#contacts" class="hover:text-emerald-700 transition">Контакти</a>
             </nav>
 
             <div class="hidden md:flex items-center gap-4">
-                <a href="tel:+380000000000" class="flex items-center gap-2 font-bold text-emerald-900 hover:text-emerald-700 transition">
+                <a href="tel:+380670000000" class="flex items-center gap-2 font-bold text-emerald-900 hover:text-emerald-700 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                     +38 (067) 000-00-00
                 </a>
-                <button class="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-full transition text-sm font-bold shadow-md hover:shadow-lg">
-                    Купити оптом
-                </button>
             </div>
 
             <button id="mobile-menu-btn" class="md:hidden text-emerald-900 p-2">
@@ -69,315 +85,387 @@
         </div>
 
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 top-full shadow-xl p-4 flex flex-col gap-4">
-             <a href="#products" class="text-lg font-medium text-gray-800 py-2 border-b border-gray-50">Продукція</a>
-             <a href="#features" class="text-lg font-medium text-gray-800 py-2 border-b border-gray-50">Характеристики</a>
-             <a href="#about" class="text-lg font-medium text-gray-800 py-2 border-b border-gray-50">Про нас</a>
-             <button class="bg-emerald-800 text-white w-full py-4 rounded-lg font-bold mt-2">Замовити дзвінок</button>
+             <a href="#product" class="text-lg font-medium text-gray-800 py-2 border-b border-gray-50">Про продукт</a>
+             <a href="#specs" class="text-lg font-medium text-gray-800 py-2 border-b border-gray-50">Характеристики</a>
+             <a href="#calculator" class="text-lg font-medium text-gray-800 py-2 border-b border-gray-50">Калькулятор</a>
+             <a href="#instruction" class="text-lg font-medium text-gray-800 py-2 border-b border-gray-50">Інструкція</a>
+             <a href="#contacts" class="text-lg font-medium text-gray-800 py-2">Контакти</a>
         </div>
     </header>
 
-    <section class="pt-32 pb-16 md:pt-44 md:pb-32 bg-gradient-to-br from-white via-emerald-50/30 to-emerald-100/50 relative overflow-hidden">
-        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center relative z-10">
-            <div class="space-y-8">
-                <div class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold tracking-wide">
-                    УКРАЇНСЬКЕ ВИРОБНИЦТВО
+    <section class="pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-br from-white via-emerald-50/40 to-emerald-100/40 relative overflow-hidden">
+        <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-8 animate-fade-in-up">
+                <div class="inline-flex items-center gap-2 bg-emerald-100/80 text-emerald-800 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide border border-emerald-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="w-5 h-3.5 rounded-[2px] shadow-sm">
+                        <path fill="#ffd700" d="M0 240h640v240H0z"/>
+                        <path fill="#0057b8" d="M0 0h640v240H0z"/>
+                    </svg>
+                    ЗРОБЛЕНО В УКРАЇНІ
                 </div>
+                
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-emerald-950 leading-[1.1]">
-                    ПРОФЕСІЙНИЙ КЛЕЙ <br/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-800">ДЛЯ ВАШОЇ ПЛИТКИ</span>
+                    STRONEX <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-800">UNIVERSAL</span>
                 </h1>
-                <p class="text-lg text-gray-600 max-w-lg leading-relaxed">
-                    Будівельні суміші STRONEX — це поєднання високої адгезії та пластичності. Купуйте напряму від виробника без націнок посередників.
+                <p class="text-lg md:text-xl text-gray-600 max-w-lg leading-relaxed border-l-4 border-emerald-500 pl-6">
+                    Універсальна клейова суміш <strong>класу C-1</strong> для облицювання керамічною плиткою всередині та зовні будівель.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                    <button class="bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg shadow-emerald-200/50 transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
-                        Дізнатись ціну
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </button>
-                    <div class="flex flex-col justify-center gap-2 text-sm font-semibold text-gray-500 pl-2">
-                        <span class="flex items-center gap-2"><svg class="text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Фасовка 25 кг</span>
-                        <span class="flex items-center gap-2"><svg class="text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Завжди в наявності</span>
+                <div class="grid grid-cols-2 gap-6 pt-4 max-w-md">
+                    <div class="bg-white/60 p-4 rounded-xl border border-emerald-100 shadow-sm">
+                        <div class="text-3xl font-bold text-emerald-700">0.8 <span class="text-base font-medium text-gray-500">МПа</span></div>
+                        <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mt-1">Адгезія (C-1)</div>
+                    </div>
+                    <div class="bg-white/60 p-4 rounded-xl border border-emerald-100 shadow-sm">
+                        <div class="text-3xl font-bold text-emerald-700">75 <span class="text-base font-medium text-gray-500">Циклів</span></div>
+                        <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mt-1">Морозостійкість</div>
                     </div>
                 </div>
             </div>
             
-            <div class="relative group flex justify-center">
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-emerald-200/40 rounded-full filter blur-3xl opacity-70"></div>
+            <div class="relative group flex justify-center lg:justify-end">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-emerald-200/40 rounded-full filter blur-3xl opacity-60"></div>
                 
-                <div class="relative z-10 w-64 md:w-80 bg-white rounded-lg shadow-2xl border border-gray-200 p-6 flex flex-col items-center text-center transform rotate-3 transition hover:rotate-0 duration-500">
-                     <div class="w-full h-full absolute inset-0 border-4 border-emerald-800 rounded-lg opacity-10"></div>
-                     <div class="text-emerald-900 font-black text-3xl mt-4">STRONEX</div>
-                     <div class="text-emerald-600 font-bold text-xl uppercase mb-8">Universal</div>
+                <div class="relative z-10 w-72 md:w-80 h-[480px] bg-white rounded-lg shadow-2xl border border-gray-200 flex flex-col items-center text-center transform rotate-3 transition hover:rotate-0 duration-700 ease-out">
+                     <div class="w-full h-full absolute inset-0 border-[6px] border-emerald-800 rounded-lg opacity-10"></div>
+                     <div class="absolute top-4 right-4 bg-emerald-600 text-white text-xs font-bold px-2 py-1 rounded">PRO</div>
                      
-                     <div class="my-4 w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-700"><path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M14 14h7v7h-7z"/><path d="M3 14h7v7H3z"/></svg>
+                     <img src="logo.png" alt="STRONEX Logo" class="mt-12 mb-4 w-48 mx-auto object-contain" />
+
+                     <div class="text-emerald-600 font-bold text-2xl uppercase tracking-widest mb-10 flex flex-col items-center">
+                        Universal
+                        <span class="text-sm bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full mt-2 font-extrabold border border-emerald-200">КЛАС C-1</span>
                      </div>
                      
-                     <div class="mt-auto font-bold text-4xl text-gray-800">25 <span class="text-lg text-gray-500">кг</span></div>
-                     <div class="text-xs text-gray-400 uppercase tracking-widest mb-2">Клей для плитки</div>
-                </div>
-                <div class="absolute z-0 w-64 md:w-80 bg-gray-100 rounded-lg shadow-xl border border-gray-200 p-6 transform -rotate-6 -translate-x-12 translate-y-4 opacity-80">
-                    <div class="text-gray-400 font-black text-3xl mt-4 text-center">STRONEX</div>
+                     <div class="mt-auto mb-8">
+                         <div class="font-bold text-5xl text-gray-800">25 <span class="text-xl text-gray-500 font-medium">кг</span></div>
+                         <div class="text-xs text-gray-400 uppercase tracking-widest mt-2">Клей для плитки</div>
+                     </div>
+                     <div class="absolute bottom-0 w-full bg-emerald-900 h-3 rounded-b-lg"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="products" class="py-24 bg-white">
+    <section id="product" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-emerald-950 mb-4">НАША ПРОДУКЦІЯ</h2>
-                <div class="w-24 h-1.5 bg-emerald-600 mx-auto rounded-full"></div>
-                <p class="mt-4 text-gray-600">Оптимальні рішення для будь-яких завдань</p>
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl font-bold text-emerald-950 mb-6">УНІВЕРСАЛЬНЕ РІШЕННЯ</h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    STRONEX UNIVERSAL — це високоякісна суха клейова суміш <strong>класу C-1</strong> на основі цементу з мінеральними наповнювачами та полімерними модифікаторами. Призначена для облицювання бетонних, цегляних, цементно-піщаних та інших недеформованих основ керамічною плиткою.
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="group border border-gray-100 rounded-3xl p-6 hover:shadow-xl hover:border-emerald-200 transition duration-300 bg-white flex flex-col">
-                    <div class="bg-gray-50 rounded-2xl h-64 mb-6 flex items-center justify-center p-4 relative overflow-hidden">
-                         <div class="absolute inset-0 bg-emerald-500/5 rounded-2xl"></div>
-                         <div class="bg-white w-32 h-48 shadow-md border border-gray-200 flex flex-col items-center justify-center text-center p-2 rounded">
-                             <span class="font-bold text-emerald-900">STRONEX</span>
-                             <span class="text-sm text-emerald-600 font-bold">UNIVERSAL</span>
-                             <span class="text-xs text-gray-400 mt-8">25kg</span>
-                         </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-emerald-600 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22h20"/><path d="M12 2v20"/><path d="M2 12h20"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">STRONEX UNIVERSAL</h3>
-                    <p class="text-sm text-gray-500 mb-4">Базовий клей для керамічної плитки всередині приміщень.</p>
-                    <ul class="space-y-2 text-sm text-gray-700 mb-6 flex-grow">
-                        <li class="flex gap-2 items-center"><span class="text-emerald-500">✓</span> Для стін та підлоги</li>
-                        <li class="flex gap-2 items-center"><span class="text-emerald-500">✓</span> Стійкість до сповзання</li>
-                        <li class="flex gap-2 items-center"><span class="text-emerald-500">✓</span> Шар: 2-10 мм</li>
-                    </ul>
-                    <div class="flex justify-between items-center mt-4">
-                        <div class="text-2xl font-bold text-gray-900">180 ₴ <span class="text-sm font-normal text-gray-500">/ мішок</span></div>
-                        <button class="bg-emerald-100 text-emerald-800 p-3 rounded-full hover:bg-emerald-200 transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                        </button>
-                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Для стін та підлоги</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Ідеально тримає плитку на вертикальних поверхнях, запобігаючи сповзанню. Витримує навантаження на підлогах.</p>
                 </div>
-
-                 <div class="group border-2 border-emerald-500 rounded-3xl p-6 shadow-xl shadow-emerald-100 bg-white flex flex-col relative">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-emerald-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Хіт продажу</div>
-                    <div class="bg-gray-50 rounded-2xl h-64 mb-6 flex items-center justify-center p-4 relative overflow-hidden">
-                         <div class="absolute inset-0 bg-emerald-500/10 rounded-2xl"></div>
-                         <div class="bg-white w-32 h-48 shadow-md border-2 border-emerald-100 flex flex-col items-center justify-center text-center p-2 rounded">
-                             <span class="font-bold text-emerald-900">STRONEX</span>
-                             <span class="text-sm text-emerald-600 font-black">EXTRA</span>
-                             <span class="text-xs text-gray-400 mt-8">25kg</span>
-                         </div>
+                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-emerald-600 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">STRONEX EXTRA FLEX</h3>
-                    <p class="text-sm text-gray-500 mb-4">Посилений еластичний клей для керамограніту та теплої підлоги.</p>
-                    <ul class="space-y-2 text-sm text-gray-700 mb-6 flex-grow">
-                        <li class="flex gap-2 items-center"><span class="text-emerald-500">✓</span> Для теплих підлог</li>
-                        <li class="flex gap-2 items-center"><span class="text-emerald-500">✓</span> Керамограніт, камінь</li>
-                        <li class="flex gap-2 items-center"><span class="text-emerald-500">✓</span> Для зовнішніх робіт</li>
-                    </ul>
-                    <div class="flex justify-between items-center mt-4">
-                        <div class="text-2xl font-bold text-emerald-700">290 ₴ <span class="text-sm font-normal text-gray-500">/ мішок</span></div>
-                        <button class="bg-emerald-700 text-white p-3 rounded-full hover:bg-emerald-800 transition shadow-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                        </button>
-                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Стійкість до сповзання</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Дозволяє укладати плитку зверху вниз. Висока тиксотропність суміші забезпечує комфортну роботу.</p>
                 </div>
-
-                <div class="group border border-gray-100 rounded-3xl p-6 hover:shadow-xl hover:border-emerald-200 transition duration-300 bg-white flex flex-col">
-                    <div class="bg-gray-50 rounded-2xl h-64 mb-6 flex items-center justify-center p-4 relative overflow-hidden">
-                         <div class="absolute inset-0 bg-emerald-500/5 rounded-2xl"></div>
-                         <div class="bg-white w-32 h-48 shadow-md border border-gray-200 flex flex-col items-center justify-center text-center p-2 rounded">
-                             <span class="font-bold text-emerald-900">STRONEX</span>
-                             <span class="text-sm text-gray-800 font-bold">PRO</span>
-                             <span class="text-xs text-gray-400 mt-8">25kg</span>
-                         </div>
+                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-emerald-600 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">STRONEX PROFESSIONAL</h3>
-                    <p class="text-sm text-gray-500 mb-4">Для великоформатної плитки та складних основ.</p>
-                    <ul class="space-y-2 text-sm text-gray-700 mb-6 flex-grow">
-                        <li class="flex gap-2 items-center"><span class="text-emerald-500">✓</span> Адгезія > 1.2 МПа</li>
-                        <li class="flex gap-2 items-center"><span class="text-emerald-500">✓</span> Басейни та тераси</li>
-                        <li class="flex gap-2 items-center"><span class="text-emerald-500">✓</span> Супер еластичний</li>
-                    </ul>
-                    <div class="flex justify-between items-center mt-4">
-                        <div class="text-2xl font-bold text-gray-900">380 ₴ <span class="text-sm font-normal text-gray-500">/ мішок</span></div>
-                        <button class="bg-emerald-100 text-emerald-800 p-3 rounded-full hover:bg-emerald-200 transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                        </button>
-                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Всередині та зовні</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Морозостійкість 75 циклів дозволяє використовувати клей для зовнішніх робіт (цоколі, криті тераси).</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-24 bg-emerald-50/50">
-        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
-            <div class="relative order-2 md:order-1">
-               <div class="absolute -top-6 -left-6 w-32 h-32 bg-emerald-200/50 rounded-full -z-10 blur-xl"></div>
-               <img src="https://placehold.co/600x500/f1f5f9/10b981?text=Factory+Production+Line" alt="Виробництво STRONEX" class="relative z-10 rounded-2xl shadow-xl object-cover w-full"/>
-               
-               <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border-l-4 border-emerald-600 z-20 max-w-[250px]">
-                   <div class="text-4xl font-black text-emerald-800">100%</div>
-                   <div class="text-sm text-gray-500 font-medium">Контроль якості кожної партії</div>
-               </div>
+    <section id="specs" class="py-24 bg-emerald-950 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div>
+                    <div class="flex items-center gap-4 mb-2">
+                        <span class="text-emerald-400 font-bold tracking-widest text-sm">ОФІЦІЙНІ ДАНІ</span>
+                        <span class="bg-emerald-600 text-white text-xs font-bold px-2 py-0.5 rounded border border-emerald-400">КЛАС C-1</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">ТЕХНІЧНІ ХАРАКТЕРИСТИКИ</h2>
+                    <div class="w-20 h-1 bg-emerald-500 mt-4 rounded-full"></div>
+                </div>
+                <p class="text-emerald-200/80 max-w-md text-sm md:text-right">
+                    Всі показники підтверджені лабораторними випробуваннями згідно з ДСТУ. Відповідає класу C-1.
+                </p>
             </div>
-            
-            <div class="order-1 md:order-2">
-              <h2 class="text-3xl md:text-4xl font-bold text-emerald-950 mb-6 uppercase leading-tight">Купуйте клей <br/> у виробника</h2>
-              <p class="text-gray-600 mb-8 leading-relaxed text-lg">
-                Ми самі виготовляємо суміші STRONEX, контролюючи кожен етап: від відбору піску та цементу до фасування. Відсутність посередників дозволяє нам давати найкращу ціну на ринку.
-              </p>
-              <div class="flex flex-col gap-4">
-                  <div class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
-                      <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                      </div>
-                      <div>
-                          <h4 class="font-bold text-gray-900">Чесна ціна</h4>
-                          <p class="text-sm text-gray-500">Ви не платите націнку магазинів</p>
-                      </div>
-                  </div>
-                  <div class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-emerald-500/30 overflow-hidden shadow-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-6 flex justify-between items-center border-b md:border-r border-emerald-500/20 hover:bg-white/5 transition"><span class="text-emerald-100 font-medium">Фасовка</span><span class="text-white font-bold text-lg">25 кг</span></div>
+                    <div class="p-6 flex justify-between items-center border-b border-emerald-500/20 hover:bg-white/5 transition"><span class="text-emerald-100 font-medium">Відкритий час роботи</span><span class="text-white font-bold text-lg">не менше 20 хв</span></div>
+                    <div class="p-6 flex justify-between items-center border-b md:border-r border-emerald-500/20 hover:bg-white/5 transition"><span class="text-emerald-100 font-medium">Водопотреба на 25 кг суміші</span><span class="text-white font-bold text-lg">5,0–6,0 л</span></div>
+                    <div class="p-6 flex justify-between items-center border-b border-emerald-500/20 hover:bg-white/5 transition"><span class="text-emerald-100 font-medium">Готовність до розшивки</span><span class="text-white font-bold text-lg">не менше 1 доби</span></div>
+                    <div class="p-6 flex justify-between items-center border-b md:border-r border-emerald-500/20 hover:bg-white/5 transition"><span class="text-emerald-100 font-medium">Витрати сухої суміші</span><span class="text-white font-bold text-lg">1,8 кг/м²·1 мм</span></div>
+                    <div class="p-6 flex justify-between items-center border-b border-emerald-500/20 hover:bg-white/5 transition"><span class="text-emerald-100 font-medium">Міцність зчеплення (28 діб)</span><span class="text-white font-bold text-lg">≥ 0,8 МПа</span></div>
+                    <div class="p-6 flex justify-between items-center border-b md:border-r border-emerald-500/20 hover:bg-white/5 transition"><span class="text-emerald-100 font-medium">Площа облицювання (з 1 мішка)</span><span class="text-white font-bold text-lg">6,0 м² (при шарі 2-3 мм)</span></div>
+                    <div class="p-6 flex justify-between items-center border-b border-emerald-500/20 hover:bg-white/5 transition"><span class="text-emerald-100 font-medium">Морозостійкість</span><span class="text-white font-bold text-lg">≥ 75 циклів</span></div>
+                    <div class="p-6 flex justify-between items-center border-b md:border-r border-emerald-500/20 hover:bg-white/5 transition"><span class="text-emerald-100 font-medium">Придатність розчину</span><span class="text-white font-bold text-lg">не менше 2 годин</span></div>
+                    <div class="p-6 flex justify-between items-center border-b border-emerald-500/20 hover:bg-white/5 transition"><span class="text-emerald-100 font-medium">Температура основи</span><span class="text-white font-bold text-lg">+5…+30 °C</span></div>
+                    <div class="p-6 flex justify-between items-center md:border-r border-emerald-500/20 hover:bg-white/5 transition"><span class="text-emerald-100 font-medium">Максимальна товщина шару</span><span class="text-white font-bold text-lg">10 мм</span></div>
+                    <div class="p-6 flex justify-between items-center hover:bg-white/5 transition"><span class="text-emerald-100 font-medium">Температура експлуатації</span><span class="text-white font-bold text-lg">–21…+65 °C</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-emerald-950 mb-3">КАЛЬКУЛЯТОР ВИТРАТ</h2>
+                <p class="text-gray-600">Розрахуйте необхідну кількість клею для вашого об'єкту</p>
+            </div>
+
+            <div class="max-w-2xl mx-auto bg-gray-50 border border-emerald-100 rounded-3xl p-8 shadow-lg">
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Площа облицювання (м²)</label>
+                        <div class="relative">
+                            <input type="number" id="areaInput" value="20" min="1" class="w-full pl-4 pr-12 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none font-bold text-xl text-gray-800" oninput="calculate()">
+                            <span class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">м²</span>
+                        </div>
                     </div>
                     <div>
-                        <h4 class="font-bold text-gray-900">Свіжа продукція</h4>
-                        <p class="text-sm text-gray-500">Клей не лежить місяцями на складах</p>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Товщина шару (мм)</label>
+                        <div class="flex items-center gap-4">
+                            <input type="range" id="thicknessInput" min="2" max="10" value="4" class="flex-grow h-2 bg-emerald-200 rounded-lg appearance-none cursor-pointer" oninput="calculate()">
+                            <div class="w-16 h-12 bg-white rounded-xl border border-gray-200 flex items-center justify-center font-bold text-xl text-emerald-700 shadow-sm">
+                                <span id="thicknessValue">4</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-400 mt-1 px-1">
+                            <span>2 мм</span>
+                            <span>10 мм</span>
+                        </div>
                     </div>
                 </div>
-              </div>
+
+                <div class="bg-emerald-900 rounded-2xl p-6 text-white flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="text-center md:text-left">
+                        <div class="text-emerald-300 text-xs font-bold uppercase tracking-wider mb-1">Необхідна вага</div>
+                        <div class="text-4xl font-black"><span id="resultWeight">144</span> <span class="text-xl font-medium text-emerald-400">кг</span></div>
+                    </div>
+                    <div class="h-12 w-px bg-emerald-700 hidden md:block"></div>
+                    <div class="text-center md:text-right">
+                        <div class="text-emerald-300 text-xs font-bold uppercase tracking-wider mb-1">Кількість мішків</div>
+                        <div class="text-4xl font-black text-white"><span id="resultBags">6</span> <span class="text-xl font-medium text-emerald-400">шт</span></div>
+                    </div>
+                </div>
+                <div class="mt-4 text-center text-xs text-gray-400">
+                    * Розрахунок є орієнтовним та базується на нормі витрати 1.8 кг/м²/мм.
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="py-24 bg-white overflow-hidden">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
-          <div class="md:w-1/2">
-            <div class="inline-block bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-xs font-bold mb-6 tracking-wide">ТЕХНОЛОГІЇ</div>
-            <h2 class="text-3xl md:text-4xl font-bold text-emerald-950 mb-6">ЧОМУ ОБИРАЮТЬ <br/> STRONEX?</h2>
-            <p class="text-gray-600 mb-8 text-lg">
-              Наша формула розроблена з урахуванням сучасних вимог майстрів-плиточників. Клей легко наноситься та надійно тримає.
-            </p>
-            <ul class="space-y-6">
-               <li class="flex items-start gap-4">
-                 <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.74 5.88-5.74 5.88-5.74-5.88z"/><path d="M12 22h.01"/><path d="M12 18h.01"/><path d="M12 14h.01"/></svg>
-                 </div>
-                 <div>
-                    <span class="font-bold text-gray-900 block">Висока адгезія</span>
-                    <span class="text-gray-500 text-sm">Плитка не відпаде навіть через 10 років.</span>
-                 </div>
-               </li>
-               <li class="flex items-start gap-4">
-                 <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M2 12h20"/></svg>
-                 </div>
-                 <div>
-                    <span class="font-bold text-gray-900 block">Економна витрата</span>
-                    <span class="text-gray-500 text-sm">Завдяки пластичності клею, ви покриваєте більшу площу.</span>
-                 </div>
-               </li>
-               <li class="flex items-start gap-4">
-                <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 mt-1">
-                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9a10 10 0 0 1 14.2 0"/><path d="M15.3 15.3l2.9 2.9c.8.8.8 2.1 0 2.9-.8.8-2.1.8-2.9 0l-2.9-2.9"/></svg>
+    <section id="instruction" class="py-24 bg-emerald-50/50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-emerald-950 mb-4">ЯК ПРАЦЮВАТИ З КЛЕЄМ</h2>
+                <p class="text-gray-600">Дотримання технології гарантує максимальну міцність</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border-b-4 border-emerald-500">
+                    <div class="text-6xl font-black text-emerald-100 mb-4">01</div>
+                    <h3 class="text-xl font-bold text-emerald-900 mb-3">Підготовка основи</h3>
+                    <p class="text-gray-600 text-sm">Основа повинна бути сухою, міцною та чистою. Видаліть пил, бруд, масляні плями. Нерівності понад 10 мм слід попередньо вирівняти. Поверхні з високим водопоглинанням обов'язково ґрунтувати.</p>
                 </div>
-                <div>
-                   <span class="font-bold text-gray-900 block">Вологостійкість</span>
-                   <span class="text-gray-500 text-sm">Ідеально підходить для ванних кімнат та кухонь.</span>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border-b-4 border-emerald-500">
+                    <div class="text-6xl font-black text-emerald-100 mb-4">02</div>
+                    <h3 class="text-xl font-bold text-emerald-900 mb-3">Приготування</h3>
+                    <p class="text-gray-600 text-sm">Суху суміш засипати в чисту воду (5.0–6.0 л на мішок). Перемішати міксером на низьких обертах до однорідної маси. Витримати 5 хвилин і перемішати знову.</p>
                 </div>
-              </li>
-            </ul>
-          </div>
-          <div class="md:w-1/2 relative">
-             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-emerald-50 rounded-full z-0"></div>
-             <img src="https://placehold.co/800x500/e2e8f0/1e293b?text=Tiling+Process" alt="Укладка плитки" class="relative z-10 w-full rounded-xl shadow-lg transform -rotate-2 hover:rotate-0 transition duration-500 border-4 border-white"/>
-          </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border-b-4 border-emerald-500">
+                    <div class="text-6xl font-black text-emerald-100 mb-4">03</div>
+                    <h3 class="text-xl font-bold text-emerald-900 mb-3">Нанесення</h3>
+                    <p class="text-gray-600 text-sm">Нанесіть розчин на основу гладкою стороною шпателя, а потім сформуйте гребінчасту структуру зубчастою стороною. Прикладіть плитку та притисніть. Коригувати можна протягом 20 хв.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="bg-emerald-950 rounded-[2.5rem] p-10 md:p-20 flex flex-col md:flex-row items-center justify-between relative overflow-hidden shadow-2xl">
-                 <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                 
-                 <div class="relative z-10 md:w-1/2 text-white mb-10 md:mb-0">
-                   <h2 class="text-3xl md:text-4xl font-bold mb-6">ОПТОВИМ ПОКУПЦЯМ</h2>
-                   <p class="text-emerald-200/80 mb-10 text-lg max-w-md">
-                     Будуєте великий об'єкт або маєте свій магазин? Скачайте оптовий прайс-лист зі спеціальними умовами.
-                   </p>
-                   <button class="bg-white text-emerald-950 hover:bg-gray-100 px-10 py-4 rounded-xl font-bold flex items-center gap-3 transition hover:scale-105">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                     Скачати прайс (PDF)
-                   </button>
-                 </div>
-                 
-                 <div class="relative z-10 md:w-1/3 flex justify-center">
-                    <div class="w-56 h-72 bg-white rounded-lg shadow-2xl transform rotate-[6deg] flex flex-col p-8 hover:rotate-0 transition duration-500">
-                        <div class="flex items-center gap-2 mb-6">
-                             <div class="w-6 h-6 bg-emerald-800 rounded"></div>
-                             <div class="font-bold text-emerald-950">STRONEX</div>
-                        </div>
-                        <div class="w-full h-2 bg-gray-200 rounded mb-2"></div>
-                        <div class="w-3/4 h-2 bg-gray-200 rounded mb-4"></div>
-                        <div class="w-full h-2 bg-gray-200 rounded mb-2"></div>
-                        <div class="w-full h-2 bg-gray-200 rounded mb-2"></div>
-                        <div class="mt-auto text-center">
-                           <div class="text-4xl font-bold text-emerald-600 mb-1">%</div>
-                           <div class="text-xs text-gray-400 uppercase">Спецпропозиція</div>
-                        </div>
+        <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-16">
+            <div>
+                <h3 class="text-2xl font-bold text-emerald-950 mb-6">Часті запитання</h3>
+                <div class="space-y-4">
+                    <details class="group bg-gray-50 rounded-xl p-4 cursor-pointer hover:bg-emerald-50 transition border border-gray-100">
+                        <summary class="flex justify-between items-center font-bold text-gray-800 list-none">
+                            <span>Який термін зберігання клею?</span>
+                            <span class="transform group-open:rotate-180 transition-transform text-emerald-600">▼</span>
+                        </summary>
+                        <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                            Термін зберігання становить 12 місяців від дати виготовлення у сухому приміщенні та непошкодженій упаковці.
+                        </p>
+                    </details>
+                    <details class="group bg-gray-50 rounded-xl p-4 cursor-pointer hover:bg-emerald-50 transition border border-gray-100">
+                        <summary class="flex justify-between items-center font-bold text-gray-800 list-none">
+                            <span>Чи підходить для зовнішніх робіт?</span>
+                            <span class="transform group-open:rotate-180 transition-transform text-emerald-600">▼</span>
+                        </summary>
+                        <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                            Так, клей STRONEX UNIVERSAL є морозостійким (75 циклів) і підходить для облицювання цоколів, терас та балконів.
+                        </p>
+                    </details>
+                    <details class="group bg-gray-50 rounded-xl p-4 cursor-pointer hover:bg-emerald-50 transition border border-gray-100">
+                        <summary class="flex justify-between items-center font-bold text-gray-800 list-none">
+                            <span>Чи можна клеїти "плитка на плитку"?</span>
+                            <span class="transform group-open:rotate-180 transition-transform text-emerald-600">▼</span>
+                        </summary>
+                        <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                            Для складних основ, таких як стара плитка, ми рекомендуємо використовувати спеціальні ґрунтовки або клеї підвищеної еластичності. Для STRONEX UNIVERSAL основу краще очистити до бетону/штукатурки.
+                        </p>
+                    </details>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold text-emerald-950 mb-6">Сертифікація якості</h3>
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 text-center">
+                    <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 text-emerald-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                     </div>
-                 </div>
+                    <h4 class="font-bold text-lg mb-2">Відповідність стандартам</h4>
+                    <p class="text-sm text-gray-500 mb-6">Продукція ТМ STRONEX відповідає вимогам ДСТУ Б В.2.7-126:2011.</p>
+                    <div class="inline-block bg-white border border-emerald-200 text-emerald-800 px-6 py-3 rounded-lg font-bold text-sm shadow-sm">
+                        Гігієнічний висновок № 12.2-18-1/26485
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contacts" class="bg-emerald-950 text-white py-20 border-t border-emerald-900">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 pb-16 border-b border-emerald-900 gap-8">
-                <div>
-                    <h2 class="text-3xl font-bold mb-3">ХОЧЕТЕ СТАТИ ДИЛЕРОМ?</h2>
-                    <p class="text-emerald-400 max-w-xl">Залиште заявку і ми надішлемо вам безкоштовні зразки нашого клею для тестування.</p>
-                </div>
-                <button class="bg-emerald-600 hover:bg-emerald-500 text-white px-10 py-5 rounded-xl font-bold text-lg transition shadow-lg shadow-emerald-900/50 whitespace-nowrap">
-                    Замовити зразки
-                </button>
-            </div>
+    <section id="about" class="py-24 bg-white overflow-hidden border-t border-gray-100">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
+          <div class="md:w-1/2 relative">
+             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-emerald-50 rounded-full z-0"></div>
+             <img src="production.jpg" alt="Лабораторний контроль STRONEX" class="relative z-10 w-full rounded-xl shadow-lg transform rotate-2 hover:rotate-0 transition duration-500 border-4 border-white grayscale hover:grayscale-0"/>
+          </div>
+          
+          <div class="md:w-1/2">
+            <div class="inline-block bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-xs font-bold mb-6 tracking-wide">ВИРОБНИЦТВО</div>
+            <h2 class="text-3xl md:text-4xl font-bold text-emerald-950 mb-6">СТАБІЛЬНА ЯКІСТЬ <br/> КОЖНОЇ ПАРТІЇ</h2>
+            <p class="text-gray-600 mb-8 text-lg">
+              Ми не розпорошуємось на десятки продуктів. Ми довели формулу нашого універсального клею до ідеалу. Власна лабораторія контролює вхідну сировину та готову продукцію.
+            </p>
+            <ul class="space-y-4 text-gray-700">
+               <li class="flex items-center gap-3">
+                   <span class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xs font-bold">✓</span>
+                   Використовуємо лише митий річковий пісок
+               </li>
+               <li class="flex items-center gap-3">
+                   <span class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xs font-bold">✓</span>
+                   Високомарочний портландцемент без домішок
+               </li>
+               <li class="flex items-center gap-3">
+                   <span class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xs font-bold">✓</span>
+                   Європейські полімерні добавки для еластичності
+               </li>
+            </ul>
+          </div>
+        </div>
+    </section>
 
-            <div class="grid md:grid-cols-4 gap-12 text-sm text-emerald-200/70">
-                <div class="space-y-4">
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-emerald-800 rounded flex items-center justify-center text-white font-bold">S</div>
-                        <span class="text-xl font-bold text-white">STRONEX</span>
+    <section class="py-20 bg-emerald-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">СТАТИ ПАРТНЕРОМ</h2>
+                <p class="text-emerald-200 text-lg mb-8">
+                    Запрошуємо до співпраці будівельні магазини, бригади та забудовників. Заповніть форму, щоб отримати оптовий прайс та умови.
+                </p>
+                <div class="flex flex-col gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-emerald-800 rounded-full flex items-center justify-center text-emerald-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <div><h4 class="font-bold">Прямі поставки</h4><span class="text-sm text-emerald-400">Без посередників від заводу</span></div>
                     </div>
-                    <p class="leading-relaxed">Український виробник якісних будівельних сумішей.</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Компанія</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#about" class="hover:text-white transition">Про нас</a></li>
-                        <li><a href="#products" class="hover:text-white transition">Каталог</a></li>
-                        <li><a href="#" class="hover:text-white transition">Сертифікати</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Контакти</h4>
-                    <ul class="space-y-3">
-                        <li class="flex gap-3"><span class="text-emerald-600">📍</span> Україна, м. Київ</li>
-                        <li class="flex gap-3"><span class="text-emerald-600">✉️</span> sales@stronex.ua</li>
-                        <li class="flex gap-3 text-white font-bold text-lg mt-2">+38 (067) 000-00-00</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Ми в соцмережах</h4>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-emerald-900 rounded-lg flex items-center justify-center hover:bg-emerald-700 transition text-white">IG</a>
-                        <a href="#" class="w-10 h-10 bg-emerald-900 rounded-lg flex items-center justify-center hover:bg-emerald-700 transition text-white">FB</a>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-emerald-800 rounded-full flex items-center justify-center text-emerald-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        </div>
+                        <div><h4 class="font-bold">Вигідна ціна</h4><span class="text-sm text-emerald-400">Спеціальні умови для оптовиків</span></div>
                     </div>
                 </div>
             </div>
             
-            <div class="mt-16 text-center text-emerald-800 text-xs font-medium">
-                © 2025 STRONEX. Всі права захищені.
+            <div class="bg-white p-8 rounded-3xl shadow-2xl text-gray-800">
+                <form action="https://formsubmit.co/buildcenterua@gmail.com" method="POST" class="space-y-4">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="Нова заявка з сайту STRONEX!">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://stronex.tech/">
+
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Ваше ім'я</label>
+                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-emerald-500 focus:outline-none" placeholder="Введіть ім'я">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Номер телефону</label>
+                        <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-emerald-500 focus:outline-none" placeholder="+38 (0__) ___-__-__">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Коментар (необов'язково)</label>
+                        <textarea name="message" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-emerald-500 focus:outline-none" rows="3" placeholder="Який об'єм вас цікавить?"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl transition shadow-lg mt-2">
+                        Надіслати заявку
+                    </button>
+                    <p class="text-xs text-gray-400 text-center mt-2">Ми зателефонуємо вам протягом робочого дня.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="bg-gray-900 text-white py-16 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 text-sm text-gray-400">
+                <div class="space-y-4">
+                    <div class="text-white font-bold text-2xl mb-4">STRONEX</div>
+                    <h5 class="font-bold text-white mb-1">ТОВ «БАЛАНС-БУД»</h5>
+                    <div class="text-emerald-400 text-sm mb-4 font-mono whitespace-nowrap">ЄДРПОУ: 46050267</div>
+                    <p class="leading-relaxed text-sm">Український виробник якісних будівельних сумішей.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Навігація</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#product" class="hover:text-emerald-500 transition">Продукт</a></li>
+                        <li><a href="#specs" class="hover:text-emerald-500 transition">Технічні дані</a></li>
+                        <li><a href="#calculator" class="hover:text-emerald-500 transition">Калькулятор</a></li>
+                        <li><a href="#instruction" class="hover:text-emerald-500 transition">Інструкція</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Контакти відділу збуту</h4>
+                    <ul class="space-y-3">
+                        <li class="flex gap-3 items-start"><span class="text-emerald-600 mt-0.5">📍</span> 49009, Україна, м. Дніпро, вул. Сергія Єфремова, 16</li>
+                        <li class="flex gap-3 items-center"><span class="text-emerald-600">✉️</span> buildcenterua@gmail.com</li>
+                        <li class="flex gap-3 items-center"><span class="text-emerald-600">📞</span> <a href="tel:+380670000000" class="text-white hover:text-emerald-500 font-medium">+38 (067) 000-00-00</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Для партнерів</h4>
+                    <p class="mb-4">Запрошуємо до співпраці будівельні магазини та бригади.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 pt-8 border-t border-gray-800 text-center text-gray-600 text-xs">
+                © 2025 ТОВ «БАЛАНС-БУД» (ТМ STRONEX). Всі права захищені.
             </div>
         </div>
     </section>
@@ -388,6 +476,43 @@
 
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
+        });
+
+        // Calculator Logic
+        function calculate() {
+            const area = document.getElementById('areaInput').value;
+            const thickness = document.getElementById('thicknessInput').value;
+            
+            // Update display value for thickness
+            document.getElementById('thicknessValue').innerText = thickness;
+
+            const consumption = 1.8; // kg per m2 per 1mm
+            const bagWeight = 25; // kg
+
+            const totalWeight = area * thickness * consumption;
+            const bags = Math.ceil(totalWeight / bagWeight);
+
+            document.getElementById('resultWeight').innerText = Math.round(totalWeight);
+            document.getElementById('resultBags').innerText = bags;
+        }
+
+        // Smooth scroll adjustment
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.classList.add('hidden');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
         });
     </script>
 </body>
