@@ -60,7 +60,7 @@
     <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             
-            <a href="#" class="flex items-center gap-3 group">
+            <a href="#" onclick="event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });" class="flex items-center gap-3 group cursor-pointer">
                 <img src="logo.png" alt="STRONEX Logo" class="h-14 w-auto object-contain" />
             </a>
 
@@ -340,9 +340,11 @@
           <div class="md:w-1/2">
             <div class="inline-block bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-xs font-bold mb-6 tracking-wide">ВИРОБНИЦТВО</div>
             <h2 class="text-3xl md:text-4xl font-bold text-emerald-950 mb-6">СТАБІЛЬНА ЯКІСТЬ <br/> КОЖНОЇ ПАРТІЇ</h2>
+            
             <p class="text-gray-600 mb-8 text-lg">
-              Ми не розпорошуємось на десятки продуктів. Ми довели формулу нашого універсального клею до ідеалу. Власна лабораторія контролює вхідну сировину та готову продукцію.
+              Ми довели формулу нашого UNIVERSAL клею до ідеалу. Лабораторно контролюємо вхідну сировину та готову продукцію.
             </p>
+            
             <ul class="space-y-4 text-gray-700">
                <li class="flex items-center gap-3">
                    <span class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xs font-bold">✓</span>
